@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Deploy kiosk wrapper
+      copy:
+        src: bin/kiosk-script
+        dest: ~/.local/bin/
+      notify:
+        - systemd restart
+    - name: Deploy kiosk.service
+      copy: 
+        src: systemd/kiosk.service
+        dest: ~/.config/systemd/user/
+      notify:
+        - systemd restart
+    - name: Deploy kiosk.service.d/exec.conf
+      copy: 
+        src: systemd/kiosk.service.d/exec.conf
+        dest: ~/.config/systemd/user/kiosk.service.d/
+      notify:
+        - systemd restart
+  handlers:
+    - name: systemd restart
+      systemd_service:
+        scope: user
+        name: kiosk.service
+        daemon_reload: true
+        enabled: true
+        state: restarted
+
+# vim: filetype=yaml

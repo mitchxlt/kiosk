@@ -1,0 +1,5 @@
+[Unit]
+Description=Kiosk Autostart
+
+[Install]
+WantedBy=xdg-desktop-autostart.target
