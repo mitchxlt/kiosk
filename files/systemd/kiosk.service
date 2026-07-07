@@ -1,6 +1,6 @@
 [Unit]
 Description=Kiosk Autostart
-After=session.slice
+Requires=app.slice
 
 [Service]
 # Restart once after 1 minute
