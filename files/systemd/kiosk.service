@@ -1,10 +1,8 @@
 [Unit]
 Description=Kiosk Autostart
-Requires=app.slice
 
 [Service]
-# Restart once after 1 minute
-#ExecStartPost=-+sh -c 'systemctl --user --quiet is-active %N-restart || systemd-run --user --unit=%N-restart --on-active=60s systemctl restart %N'
+ExecStartPre=sh -c 'if [[ ! -e /tmp/kiosk ]]; then touch /tmp/kiosk; sleep 60 ]]'
 
 [Install]
 WantedBy=xdg-desktop-autostart.target
