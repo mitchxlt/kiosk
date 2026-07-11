@@ -2,7 +2,7 @@
 Description=Kiosk Autostart
 
 [Service]
-ExecStartPre=sh -c 'if [[ ! -e /tmp/kiosk ]]; then touch /tmp/kiosk; sleep 60 ]]'
+ExecStartPre=sh -c 'if [[ ! -e /tmp/kiosk ]]; then touch /tmp/kiosk; sleep 60; fi'
 
 [Install]
 WantedBy=xdg-desktop-autostart.target
