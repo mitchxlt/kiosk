@@ -5,7 +5,7 @@ case "${1}" in
 		cava
 		;;
 	vlc)
-		vlc --no-audio --fullscreen --video-on-top --loop "${2}"
+		vlc --no-audio --no-osd --fullscreen --video-on-top --loop "${2}"
 		;;
 	chromium)
 		# https://superuser.com/a/1206120/60094
