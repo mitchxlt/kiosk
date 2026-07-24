@@ -2,7 +2,7 @@
 Description=Kiosk Autostart
 
 [Service]
-ExecStartPre=bash -c 'if [[ ! -e /tmp/kiosk ]]; then sleep 60; touch /tmp/kiosk; fi'
+ExecStartPre=bash -c 'if [[ ! -e "${XDG_RUNTIME_DIR}/kiosk" ]]; then sleep 60; touch "${XDG_RUNTIME_DIR}/kiosk"; fi'
 
 [Install]
 WantedBy=xdg-desktop-autostart.target
