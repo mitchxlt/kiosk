@@ -2,6 +2,7 @@
 Description=Kiosk Autostart
 
 [Service]
+TimeoutStartSec=300
 ExecStartPre=bash -c 'if [[ ! -e "${XDG_RUNTIME_DIR}/kiosk" ]]; then sleep 120; touch "${XDG_RUNTIME_DIR}/kiosk"; fi'
 
 [Install]
