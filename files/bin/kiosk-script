@@ -14,6 +14,7 @@ case "${1}" in
 		chromium --incognito \
 		--hide-scrollbars \
 		--check-for-update-interval=604800 \
+		--trace-startup --trace-startup-file=/tmp/chrome-startup.log \
 		--start-fullscreen "${2}"
 		;;
 esac
